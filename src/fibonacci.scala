@@ -1,3 +1,5 @@
+package lx13.future
+
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
 import scala.concurrent.{Await, Future, Promise}
@@ -105,12 +107,12 @@ object Fib {
   }
 
   def usage() : Unit = {
-      println("runMain Fib {future, rec, promise, add, add_zip, add_promise, fib}")
+      println("runMain lx13.future.run {future, rec, promise, add, add_zip, add_promise, fib}")
   }
 
-  def main(arguments: Array[String]) : Unit = {
-    val param = if (arguments.length == 0) "recursive" else arguments(0)
-    param match {
+  @main
+  def run(command: String) = {
+    command match {
       case "future" => future()
       case "rec" => println(f"Fibonacci(10) = ${recursive.fib(10)}")
       case "promise" => promise()
